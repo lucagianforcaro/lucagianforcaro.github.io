@@ -100,6 +100,11 @@
   .grade { font-weight: 700; color: var(--olive); }
   .school .note { font-size: 0.95rem; color: var(--soft); margin: 0.6rem 0 0; }
 
+  .school .thesis { font-style: italic; margin: 0.6rem 0 0.4rem; max-width: 38rem; }
+  .points { margin: 0.5rem 0 0; padding-left: 1.1rem; max-width: 38rem; }
+  .points li { margin: 0 0 0.45rem; padding-left: 0.2rem; }
+  .points li::marker { color: var(--olive); }
+
   /* Project */
   .project h3 { font-size: 1.5rem; font-weight: 500; letter-spacing: -0.02em; line-height: 1.2; margin: 0 0 0.5rem; }
   .project .state { display: inline-block; font-size: 0.85rem; color: var(--olive); font-weight: 700; margin-bottom: 1rem; }
@@ -130,6 +135,7 @@
   <a class="mark" href="#top">Luca Gianforcaro</a>
   <nav aria-label="Main">
     <a href="#about">About</a>
+    <a href="#experience">Experience</a>
     <a href="#education">Education</a>
     <a href="#projects">Projects</a>
     <a class="keep" href="cv.pdf">CV</a>
@@ -151,9 +157,30 @@
       <h2>About</h2>
       <div class="body">
         <p class="big">I am a biomedical engineer with a background in biomechanics and wearable robotics, now focusing on robots that learn their behaviour from data.</p>
-        <p>For my MSc thesis at the BioRobotics Institute of Scuola Superiore Sant'Anna, I worked on arm and hand synergic control for functional electrical stimulation on a hybrid exoskeleton. I built the full pipeline, from synchronised data acquisition between an upper limb exoskeleton and a sensorised glove to deep learning models that decode hand motion intent from arm kinematics, and I prepared the models for deployment on embedded hardware with ROS 2.</p>
+        <p>For my MSc thesis at Scuola Superiore Sant'Anna I built a complete pipeline for arm and hand control of a hybrid exoskeleton, from data acquisition to models ready for embedded deployment.</p>
         <p>Today I am studying robot learning in depth, from classical control to imitation and reinforcement learning, working hands on with PyTorch, MuJoCo and LeRobot. I am particularly interested in perception and in vision language action models. I am looking for junior roles in robotics and machine learning engineering in Europe.</p>
       </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <ol class="schools">
+        <li class="school">
+          <div class="logo"><img src="logos/santanna.png" alt="" onerror="this.parentNode.classList.add('missing')"><span class="mono">SA</span></div>
+          <div>
+            <h3>MSc thesis researcher, BioRobotics Institute</h3>
+            <p class="inst">Scuola Superiore Sant'Anna, Wearable Robotics Laboratory</p>
+            <p class="meta"><span>Sep 2025 to Jul 2026</span><span>Pontedera</span></p>
+            <p class="thesis">Arm Hand Synergic Control for FES Actuation on Hybrid Exoskeleton</p>
+            <ul class="points">
+              <li>Built the acquisition pipeline synchronising an upper limb exoskeleton and a sensorised glove over UDP, and a multimodal dataset from 17 subjects across 6 daily living tasks.</li>
+              <li>Trained a BiLSTM classifier that decodes hand motion intent from arm kinematics, reaching 87.6% median balanced accuracy in leave one subject out validation.</li>
+              <li>Used transfer learning to adapt the model from healthy to impaired movement, raising accuracy from about 67% to up to 87.6%.</li>
+              <li>Quantised the model with TFLite for embedded deployment with negligible accuracy loss, and started the ROS 2 nodes driving the stimulation module.</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
     </section>
 
     <section id="education">
@@ -165,7 +192,6 @@
             <h3>MSc in Biomedical Engineering</h3>
             <p class="inst">Politecnico di Torino</p>
             <p class="meta"><span class="grade">110/110 with honours</span><span>2023 to 2026</span><span>Turin</span></p>
-            <p class="note">Thesis at the BioRobotics Institute, Scuola Superiore Sant'Anna, Pontedera</p>
           </div>
         </li>
         <li class="school">
@@ -175,14 +201,6 @@
             <p class="inst">Università degli Studi di Palermo</p>
             <p class="meta"><span class="grade">110/110 with honours</span><span>2019 to 2023</span><span>Palermo</span></p>
             <p class="note">Erasmus+ semester at NOVA School of Science and Technology, Lisbon</p>
-          </div>
-        </li>
-        <li class="school">
-          <div class="logo"><img src="logos/sciascia.png" alt="" onerror="this.parentNode.classList.add('missing')"><span class="mono">LS</span></div>
-          <div>
-            <h3>Scientific High School Diploma</h3>
-            <p class="inst">Liceo Scientifico Leonardo Sciascia</p>
-            <p class="meta"><span class="grade">96/100</span><span>2014 to 2019</span><span>Canicattì</span></p>
           </div>
         </li>
       </ol>

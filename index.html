@@ -5,14 +5,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Luca Gianforcaro · Robotics and Physical AI</title>
 <meta name="description" content="Luca Gianforcaro, biomedical engineer working on robotics, machine learning and Physical AI.">
-<meta property="og:title" content="Luca Gianforcaro">
+<meta name="author" content="Luca Gianforcaro">
+<meta name="theme-color" content="#e8dfcf">
+<link rel="canonical" href="https://lucagianforcaro.github.io/">
+<meta property="og:title" content="Luca Gianforcaro · Robotics and Physical AI">
 <meta property="og:description" content="Biomedical engineer working on robotics, machine learning and Physical AI.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="foto.jpg">
+<meta property="og:url" content="https://lucagianforcaro.github.io/">
+<meta property="og:image" content="https://lucagianforcaro.github.io/foto.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Luca Gianforcaro · Robotics and Physical AI">
+<meta name="twitter:description" content="Biomedical engineer working on robotics, machine learning and Physical AI.">
+<meta name="twitter:image" content="https://lucagianforcaro.github.io/foto.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Luca Gianforcaro",
+  "url": "https://lucagianforcaro.github.io/",
+  "image": "https://lucagianforcaro.github.io/foto.jpg",
+  "jobTitle": "Biomedical Engineer",
+  "description": "Biomedical engineer working on robotics, machine learning and Physical AI.",
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "Politecnico di Torino" },
+    { "@type": "CollegeOrUniversity", "name": "Università degli Studi di Palermo" }
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/in/luca-gianforcaro/",
+    "https://github.com/lucagianforcaro"
+  ]
+}
+</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231f2b3d'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='26' text-anchor='middle' fill='%23e8dfcf'%3ELG%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
 <style>
   :root {
     --sand: #e8dfcf;
@@ -22,6 +49,7 @@
     --line: #cfc3ad;
     --olive: #5b6b34;
     --font: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+    --serif: "Newsreader", Georgia, "Times New Roman", serif;
     --wrap: 70rem;
     box-sizing: border-box;
   }
@@ -44,11 +72,22 @@
   .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 1.5rem; }
   @media (min-width: 60rem) { .wrap { padding: 0 3rem; } }
 
+  section[id], #top { scroll-margin-top: 4.5rem; }
+  .skip { position: absolute; left: 1rem; top: -4rem; background: var(--ink); color: var(--sand); padding: 0.6rem 1rem; border-radius: 6px; background-image: none; z-index: 100; }
+  .skip:focus { top: 1rem; }
+
   /* Top bar */
-  .bar { display: flex; justify-content: space-between; align-items: baseline; padding-top: 1.75rem; padding-bottom: 1.75rem; font-size: 0.95rem; }
-  .bar .mark { font-weight: 700; background: none; letter-spacing: -0.01em; }
-  .bar nav { display: flex; gap: 1.5rem; }
-  @media (max-width: 34rem) { .bar nav a:not(.keep) { display: none; } }
+  .site-header { position: sticky; top: 0; z-index: 50; background: rgba(232, 223, 207, 0.85); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid transparent; transition: border-color .25s ease; }
+  .site-header.scrolled { border-bottom-color: var(--line); }
+  .bar { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; padding-top: 1.1rem; padding-bottom: 1.1rem; font-size: 0.95rem; }
+  .bar .mark { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; background: none; letter-spacing: -0.01em; white-space: nowrap; }
+  .bar nav { display: flex; gap: 1.5rem; overflow-x: auto; scrollbar-width: none; }
+  .bar nav::-webkit-scrollbar { display: none; }
+  .bar nav a { white-space: nowrap; background-size: 0 2px; padding-bottom: 2px; }
+  .bar nav a:hover, .bar nav a.active { background-size: 100% 2px; }
+  .bar nav a.cv { font-weight: 700; }
+  @media (max-width: 34rem) { .school { grid-template-columns: 3.75rem 1fr; gap: 1rem; } .logo { width: 3.75rem; height: 3.75rem; padding: 0.1rem; } }
+  @media (max-width: 40rem) { .bar { gap: 1rem; } .bar nav { gap: 1rem; font-size: 0.88rem; } .bar .mark { display: none; } }
 
   /* Hero */
   .hero { padding-top: 3rem; padding-bottom: 5rem; }
@@ -64,14 +103,22 @@
     box-shadow: 0 0 0 1px var(--line);
   }
   h1 {
+    font-family: var(--serif);
     font-weight: 500;
     font-size: clamp(2.6rem, 9vw, 7rem);
-    line-height: 0.92;
-    letter-spacing: -0.045em;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
     margin: 0;
   }
   .intro { font-size: clamp(1.15rem, 2.1vw, 1.45rem); line-height: 1.45; max-width: 34rem; margin: 0; }
   .intro span { color: var(--soft); }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+  .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.4rem; border-radius: 999px; font-weight: 500; font-size: 1rem; background-image: none; border: 1px solid var(--ink); transition: background-color .2s ease, color .2s ease, transform .2s ease; }
+  .btn:hover { transform: translateY(-1px); }
+  .btn.primary { background: var(--ink); color: var(--sand); }
+  .btn.primary:hover { background: var(--olive); border-color: var(--olive); }
+  .btn.ghost:hover { background: var(--ink); color: var(--sand); }
+  .btn svg { width: 1.1em; height: 1.1em; fill: currentColor; }
 
   /* Sections */
   .panel { background: var(--paper); border-top: 1px solid var(--line); }
@@ -85,11 +132,11 @@
 
   /* Education */
   .schools { list-style: none; margin: 0; padding: 0; }
-  .school { display: grid; grid-template-columns: 3.25rem 1fr; gap: 1.25rem; padding: 1.5rem 0; border-top: 1px solid var(--line); }
+  .school { display: grid; grid-template-columns: 5rem 1fr; gap: 1.5rem; padding: 1.5rem 0; border-top: 1px solid var(--line); }
   .school:first-child { border-top: 0; padding-top: 0; }
   .school:last-child { padding-bottom: 0; }
-  .logo { width: 3.25rem; height: 3.25rem; border-radius: 8px; background: #fff; box-shadow: 0 0 0 1px var(--line); display: grid; place-items: center; overflow: hidden; }
-  .logo img { width: 80%; height: 80%; object-fit: contain; display: block; }
+  .logo { width: 5rem; height: 5rem; border-radius: 50%; background: #fff; box-shadow: 0 0 0 1px var(--line); display: grid; place-items: center; overflow: hidden; padding: 0.1rem; }
+  .logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
   .logo .mono { display: none; font-weight: 700; font-size: 0.95rem; letter-spacing: -0.02em; color: var(--ink); }
   .logo.missing { background: var(--sand); }
   .logo.missing img { display: none; }
@@ -111,6 +158,13 @@
   .project .state::before { content: ""; display: inline-block; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--olive); margin-right: 0.5rem; vertical-align: 0.1rem; }
   .tags { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin: 0; padding: 0; list-style: none; color: var(--soft); font-size: 0.95rem; }
 
+  /* Skills */
+  .skills { display: grid; gap: 1.5rem 2.5rem; margin: 0; }
+  @media (min-width: 40rem) { .skills { grid-template-columns: repeat(2, 1fr); } }
+  .skills h3 { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--olive); margin: 0 0 0.6rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0; padding: 0; list-style: none; }
+  .chips li { padding: 0.25rem 0.8rem; border: 1px solid var(--line); border-radius: 999px; background: var(--sand); font-size: 0.92rem; }
+
   /* Contact */
   .cta { display: flex; flex-wrap: wrap; gap: 1rem 2.25rem; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 500; letter-spacing: -0.02em; }
 
@@ -120,27 +174,38 @@
   @media (prefers-reduced-motion: no-preference) {
     .hero > * { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
     .hero > *:nth-child(2) { animation-delay: .15s; }
+    .hero > *:nth-child(3) { animation-delay: .3s; }
     @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+    .js .reveal.in { opacity: 1; transform: none; }
   }
   @media print {
     body { background: #fff; }
-    .bar nav, footer { display: none; }
+    .site-header, .skip, .actions, footer { display: none; }
     .panel { background: #fff; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+    section { break-inside: avoid; }
   }
 </style>
 </head>
 <body>
+<script>document.documentElement.classList.add('js')</script>
+<a class="skip" href="#about">Skip to content</a>
 
-<header class="wrap bar">
-  <a class="mark" href="#top">Luca Gianforcaro</a>
-  <nav aria-label="Main">
-    <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#projects">Projects</a>
-    <a class="keep" href="cv.pdf">CV</a>
-  </nav>
-</header>
+<div class="site-header">
+  <header class="wrap bar">
+    <a class="mark" href="#top">Luca Gianforcaro</a>
+    <nav aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <a class="cv" href="cv.pdf" target="_blank" rel="noopener">CV</a>
+    </nav>
+  </header>
+</div>
 
 <div class="wrap hero" id="top">
   <div class="name">
@@ -148,6 +213,11 @@
     <h1>Luca<br>Gianforcaro</h1>
   </div>
   <p class="intro">Biomedical engineer working on robotics and Physical AI. <span>I study how machines can learn to move, starting from how people do.</span></p>
+  <div class="actions">
+    <a class="btn primary" href="cv.pdf" target="_blank" rel="noopener">Download CV</a>
+    <a class="btn ghost" href="https://www.linkedin.com/in/luca-gianforcaro/" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn ghost" href="https://github.com/lucagianforcaro" target="_blank" rel="noopener">GitHub</a>
+  </div>
 </div>
 
 <main class="panel">
@@ -173,9 +243,10 @@
             <p class="meta"><span>Sep 2025 to Jul 2026</span><span>Pontedera</span></p>
             <p class="thesis">Arm Hand Synergic Control for FES Actuation on Hybrid Exoskeleton</p>
             <ul class="points">
-              <li>Built the acquisition pipeline synchronising an upper limb exoskeleton and a sensorised glove over UDP, and a multimodal dataset from 17 subjects across 6 daily living tasks.</li>
+              <li>Built the acquisition pipeline synchronising an upper limb exoskeleton and a sensorised glove over UDP, and a multimodal dataset from 10 healthy and 7 impaired (emulated with impedance control) subjects across 6 daily living tasks.</li>
               <li>Trained a BiLSTM classifier that decodes hand motion intent from arm kinematics, reaching 87.6% median balanced accuracy in leave one subject out validation.</li>
               <li>Used transfer learning to adapt the model from healthy to impaired movement, raising accuracy from about 67% to up to 87.6%.</li>
+              <li>Developed a semi supervised VAE based model for subject invariant latent representations, reaching 81.8% mean cluster accuracy and a macro F1 of 0.787.</li>
               <li>Quantised the model with TFLite for embedded deployment with negligible accuracy loss, and started the ROS 2 nodes driving the stimulation module.</li>
             </ul>
           </div>
@@ -206,6 +277,28 @@
       </ol>
     </section>
 
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="body skills">
+        <div>
+          <h3>Programming and ML</h3>
+          <ul class="chips"><li>Python</li><li>PyTorch</li><li>TensorFlow / Keras</li><li>MATLAB / Simulink</li><li>LabVIEW</li><li>C++ (basic)</li></ul>
+        </div>
+        <div>
+          <h3>Robotics and systems</h3>
+          <ul class="chips"><li>ROS 2</li><li>MuJoCo</li><li>LeRobot</li><li>Embedded deployment</li><li>UDP real time communication</li></ul>
+        </div>
+        <div>
+          <h3>Engineering tools</h3>
+          <ul class="chips"><li>SolidWorks</li><li>MSC Adams</li><li>Mimics</li><li>Patran-Nastran</li><li>Rhinoceros 3D</li><li>GROMACS</li><li>VMD</li><li>Octave</li><li>OrCAD PSpice</li></ul>
+        </div>
+        <div>
+          <h3>Languages</h3>
+          <ul class="chips"><li>Italian, native</li><li>English, IELTS C1</li><li>Portuguese, B1</li></ul>
+        </div>
+      </div>
+    </section>
+
     <section id="projects">
       <h2>Projects</h2>
       <div class="body project">
@@ -221,9 +314,9 @@
       <div class="body">
         <p>The best way to reach me is LinkedIn. My code lives on GitHub.</p>
         <div class="cta">
-          <a href="https://www.linkedin.com/in/luca-gianforcaro/">LinkedIn</a>
-          <a href="https://github.com/lucagianforcaro">GitHub</a>
-          <a href="cv.pdf">Download CV</a>
+          <a href="https://www.linkedin.com/in/luca-gianforcaro/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/lucagianforcaro" target="_blank" rel="noopener">GitHub</a>
+          <a href="cv.pdf" target="_blank" rel="noopener">Download CV</a>
         </div>
       </div>
     </section>
@@ -233,10 +326,39 @@
 
 <footer>
   <div class="wrap">
-    <span>Luca Gianforcaro</span>
-    <span>Built by hand, hosted on GitHub Pages</span>
+    <span>© <span id="year">2026</span> Luca Gianforcaro</span>
+    <a href="#top">Back to top ↑</a>
   </div>
 </footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // header border on scroll
+  const header = document.querySelector('.site-header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // active nav link + reveal on scroll
+  const links = [...document.querySelectorAll('.bar nav a[href^="#"]')];
+  const sections = links.map(a => document.querySelector(a.getAttribute('href')));
+  if ('IntersectionObserver' in window) {
+    const spy = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    sections.forEach(s => s && spy.observe(s));
+
+    const reveal = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); reveal.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('main section').forEach(s => { s.classList.add('reveal'); reveal.observe(s); });
+  }
+</script>
 
 </body>
 </html>
